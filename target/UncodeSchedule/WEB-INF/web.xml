@@ -1,0 +1,30 @@
+<web-app>
+	<display-name>UncodeSchedule</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>UncodeManual</servlet-name>
+		<servlet-class>cn.uncode.schedule.web.ManagerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UncodeManual</servlet-name>
+		<url-pattern>/uncode/schedule</url-pattern>
+	</servlet-mapping>
+
+	<!-- 配置 uncode schedule 手动执行器 -->
+	<servlet>
+		<servlet-name>ScheduleManual</servlet-name>
+		<servlet-class>cn.uncode.schedule.web.ManualServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ScheduleManual</servlet-name>
+		<url-pattern>/schedule/manual</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
